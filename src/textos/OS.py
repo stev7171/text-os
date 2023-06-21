@@ -4,6 +4,7 @@
 def start():
     import syscalls
     import kernel
+    import os
 
     call = syscalls.System()
 
@@ -11,7 +12,10 @@ def start():
     call.println("[1]: Run file")
     call.println("[2]: List all files")
     call.println("[3]: Edit file")
-    call.println("[4]: Exit")
+    call.println("[4]: New File")
+    call.println("[5]: Delete File")
+    call.println("[6]: Exit")
+    call.println("[7]: Restart")
 
     while True:
         op = call.get_input("[?]: ")
@@ -20,7 +24,9 @@ def start():
             program = input("Enter program: ")
 
             if ".BIN" in program:
-                call.run_bin_file(program)
+                if program != "KERNEL.BIN":
+                    call.run_bin_file(program)
+                else: call.println("You do not have permission to run that file.")
             if ".RUN" in program:
                 kernel.run(program)
         elif op == "2":
@@ -35,4 +41,14 @@ def start():
                 new_contents = input("Enter new contents: ")
                 call.overwrite_file(f, new_contents)
         elif op == "4":
+            name = input("File name: ")
+            contents = input("File contents: ")
+            call.create_file(name, contents)
+        elif op == "5":
+            name = input("File name: ")
+            call.remove_file(name)
+        elif op == "6":
+            quit()
+        elif op == "7":
+            os.startfile("boot.py")
             quit()
