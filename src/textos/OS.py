@@ -13,14 +13,26 @@ def start():
     call.println("[3]: Edit file")
     call.println("[4]: Exit")
 
-    op = call.get_input("[?]: ")
+    while True:
+        op = call.get_input("[?]: ")
 
-    if op == "1":
-        program = input("Enter program: ")
+        if op == "1":
+            program = input("Enter program: ")
 
-        if ".BIN" in program:
-            call.run_bin_file(program)
-        if ".RUN" in program:
-            kernel.run(program)
-        else:
-            call.println("File isn't runnable!")
+            if ".BIN" in program:
+                call.run_bin_file(program)
+            if ".RUN" in program:
+                kernel.run(program)
+        elif op == "2":
+            call.listroot()
+        elif op == "3":
+            f = input("File: ")
+            e = call.find_file(f)
+            
+            if e == 1:
+                print("File doesn't exist!")
+            else:
+                new_contents = input("Enter new contents: ")
+                call.overwrite_file(f, new_contents)
+        elif op == "4":
+            quit()
