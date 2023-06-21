@@ -7,3 +7,5 @@ def start():
     call = syscalls.System()
 
     call.println("Hello from TextOS!")
+
+    call.get_input("")

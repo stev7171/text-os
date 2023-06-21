@@ -8,7 +8,7 @@ Version = "1.0.0"
 
 # Don't touch anything else unless you know what you're doing!
 
-os = False
+os = True
 
 
 
