@@ -4,4 +4,5 @@ files = {"KERNEL.BIN":"kernel.py",
          "TESTAPP.RUN":"println:Hello, World!//",
          "TEST.BIN":"test",
          "LIST.BIN":"listroot",
-         "CLI.BIN":"cli"}
+         "CLI.BIN":"cli",
+         "RESTART.BIN":"restart"}

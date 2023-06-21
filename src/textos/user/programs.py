@@ -26,3 +26,11 @@ def cli():
             call.println("clear: clears the screen")
             call.println("exit: exits the OS")
         else: kernel.run_cmd(prompt+"//")
+
+def restart():
+    call = syscalls.System()
+
+    f = call.find_file("KERNEL.BIN")
+
+    if f == 1: call.println("Couldn't find KERNEL.BIN!"); input("Press enter to quit..."); quit()
+    else: call.run_os_file("KERNEL.BIN"); quit()

@@ -48,7 +48,13 @@ def start():
             name = input("File name: ")
             call.remove_file(name)
         elif op == "6":
-            quit()
+            s = input("Exiting will delete all your files! Are you sure? [Y/N]: ")
+            if s.lower() == "y":
+                quit()
+            else: call.println("Aborting shutdown...")
         elif op == "7":
-            os.startfile("boot.py")
-            quit()
+            s = input("Restarting will delete all your files! Are you sure? [Y/N]: ")
+            if s.lower() == "y":
+                os.startfile("boot.py")
+                quit()
+            else: call.println("Aborting restart...")
