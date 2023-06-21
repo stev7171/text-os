@@ -6,8 +6,11 @@ def start():
     import kernel
     import os
 
+    Version = "1.0.0"
+
     call = syscalls.System()
 
+    call.println(f"TextOS version {Version}")
     call.println("==== TextOS Home Menu ====")
     call.println("[1]: Run file")
     call.println("[2]: List all files")
